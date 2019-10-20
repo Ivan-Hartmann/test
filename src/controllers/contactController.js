@@ -1,9 +1,10 @@
-// Import contact model
-Contact = require('./contactModel');
-// Handle index actions
-exports.index = function (req, res) {
-    Contact.get(function (err, contacts) {
-        if (err) {
+// Importar el modelo para guardar en la base de datos
+Contact = require('../models/contactModel');
+// Ruta inicial
+    exports.index = function (req, res) {
+        Contact.get(function (err, contacts) {
+        
+            if (err) {
             res.json({
                 status: "error",
                 message: err,
@@ -16,24 +17,24 @@ exports.index = function (req, res) {
         });
     });
 };
-// Handle create contact actions
+// Crear
 exports.new = function (req, res) {
     var contact = new Contact();
     contact.name = req.body.name ? req.body.name : contact.name;
     contact.gender = req.body.gender;
     contact.email = req.body.email;
     contact.phone = req.body.phone;
-// save the contact and check for errors
+// Guardar y verificar errores
     contact.save(function (err) {
-        // if (err)
-        //     res.json(err);
-res.json({
+         if (err)
+             res.json(err);
+        res.json({
             message: 'New contact created!',
             data: contact
         });
     });
 };
-// Handle view contact info
+// Buscar por id
 exports.view = function (req, res) {
     Contact.findById(req.params.contact_id, function (err, contact) {
         if (err)
@@ -44,7 +45,7 @@ exports.view = function (req, res) {
         });
     });
 };
-// Handle update contact info
+// Actualizar
 exports.update = function (req, res) {
 Contact.findById(req.params.contact_id, function (err, contact) {
         if (err)
@@ -53,7 +54,7 @@ Contact.findById(req.params.contact_id, function (err, contact) {
         contact.gender = req.body.gender;
         contact.email = req.body.email;
         contact.phone = req.body.phone;
-// save the contact and check for errors
+// Guardar y verificar errores
         contact.save(function (err) {
             if (err)
                 res.json(err);
@@ -64,7 +65,7 @@ Contact.findById(req.params.contact_id, function (err, contact) {
         });
     });
 };
-// Handle delete contact
+// Eliminar
 exports.delete = function (req, res) {
     Contact.remove({
         _id: req.params.contact_id
