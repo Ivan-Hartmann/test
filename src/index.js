@@ -2,6 +2,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
+let cors = require('cors');
 
 let app = express();
 
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-
+app.use(cors());
 // Conexión a mongo atlas (mongodb)
 mongoose.connect('mongodb+srv://Ivanlomejor:Ivanlomejor@myapp-2jlr6.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
