@@ -59,7 +59,10 @@ Product.findById(req.params.producto_id, function (err, producto) {
             // Guardar y verificar errores
             producto.save(function (err) {
             if (err)
-                res.json(err);
+                res.json({
+                    data: err,
+                    message:'ERROR'
+                });
             res.json({
                 message: 'Producto actualizado correctamente',
                 data: producto
