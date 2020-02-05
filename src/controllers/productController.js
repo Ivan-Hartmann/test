@@ -86,10 +86,5 @@ res.json({
 // Buscar y Actualizar o Guardar
 exports.put = function (req, res) {
 const update = req.body;
-
-let doc = await Character.findOneAndUpdate(filter, update, {
-  new: true,
-  upsert: true // Make this update into an upsert
-});
-res.send('Peticion aceptada')
+res.send(update);
 };
