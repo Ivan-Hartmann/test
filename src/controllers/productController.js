@@ -91,7 +91,5 @@ let doc = await Character.findOneAndUpdate(filter, update, {
   new: true,
   upsert: true // Make this update into an upsert
 });
-res.json({
-    producto:doc
-})
+res.send('Peticion aceptada')
 };
