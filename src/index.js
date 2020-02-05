@@ -16,7 +16,9 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(cors());
 // Conexión a mongo atlas (mongodb)
-mongoose.connect('mongodb+srv://Ivanlomejor:Ivanlomejor@myapp-2jlr6.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true});
+var uri='mongodb+srv://Ivanlomejor:Ivanlomejor@myapp-2jlr6.mongodb.net/test?retryWrites=true&w=majority';
+var uriLocalhost="mongodb://localhost/tesis";
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 
 // Comprobación de errores

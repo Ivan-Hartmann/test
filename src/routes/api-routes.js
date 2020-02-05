@@ -21,7 +21,8 @@ router.route('/contacts/:contact_id')
 
 router.route('/productos')
     .get(productController.index)
-    .post(productController.new);
+    .post(productController.new)
+    .put(productController.put)
 router.route('/productos/:producto_id')
     .get(productController.view)
     .patch(productController.update)
