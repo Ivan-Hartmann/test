@@ -84,7 +84,7 @@ res.json({
     });
 };
 // Buscar y Actualizar o Guardar
-exports.put = function (req, res) {
+exports.actualizar = function (req, res) {
     const update = req.body;
     const {marca, nombre, codigo} =req.body;
     var filter='';
