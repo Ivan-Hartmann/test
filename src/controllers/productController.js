@@ -85,6 +85,33 @@ res.json({
 };
 // Buscar y Actualizar o Guardar
 exports.put = function (req, res) {
-const update = req.body;
-res.send(update);
-};
+    const update = req.body;
+    const {marca, nombre, codigo} =req.body;
+    var filter='';
+
+    if(nombre!='' && codigo!=''){
+        filter = {
+            "marca": marca,
+            "nombre": nombre,
+            "codigo": codigo
+            };
+        }
+    if(nombre==''){
+        filter = {
+        "marca": marca,
+        "codigo": codigo
+        };
+    }else{
+        filter = {
+            "marca": marca,
+            "nombre": nombre};
+    }
+
+await Product.findOneAndUpdate(filter, update, {
+  new: true,
+  upsert: true // Esta funcion es para agregar un documento nuevo en caso de no ser encontrado
+})
+.then(data => res.json({data:data, message:true}))
+.catch(err => ({data:err, message:false}));
+
+}
