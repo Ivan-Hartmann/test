@@ -84,7 +84,7 @@ res.json({
     });
 };
 // Buscar y Actualizar o Guardar
-exports.actualizar = function async (req, res) {
+exports.actualizar = function (req, res) {
     const update = req.body;
     const {marca, nombre, codigo} =req.body;
     var filter='';
@@ -107,7 +107,7 @@ exports.actualizar = function async (req, res) {
             "nombre": nombre};
     }
 
-await Product.findOneAndUpdate(filter, update, {
+Product.findOneAndUpdate(filter, update, {
   new: true,
   upsert: true // Esta funcion es para agregar un documento nuevo en caso de no ser encontrado
 })
