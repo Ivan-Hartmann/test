@@ -86,25 +86,29 @@ res.json({
 // Buscar y Actualizar o Guardar
 exports.actualizar = function (req, res) {
     const update = req.body;
-    const {marca, nombre, codigo} =req.body;
+    const {marca, nombre, codigo, talla} =req.body;
     var filter='';
 
     if(nombre!='' && codigo!=''){
         filter = {
             "marca": marca,
             "nombre": nombre,
-            "codigo": codigo
+            "codigo": codigo,
+            "talla": talla
             };
         }
     if(nombre==''){
         filter = {
         "marca": marca,
-        "codigo": codigo
+        "codigo": codigo,
+        "talla": talla
         };
     }else{
         filter = {
             "marca": marca,
-            "nombre": nombre};
+            "nombre": nombre,
+            "talla": talla
+        };
     }
 
 Product.findOneAndUpdate(filter, update, {
