@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
     });
 });
 // Import controlador
-var contactController = require('../controllers/contactController');
+var contactController = require('../controllers/ccControllers');
 var productController = require('../controllers/productController');
 // Rutas
 router.route('/contacts')
