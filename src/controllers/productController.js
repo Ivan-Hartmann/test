@@ -86,7 +86,7 @@ res.json({
 // Buscar y Actualizar o Guardar
 exports.actualizar = function (req, res) {
     const update = req.body;
-    const {marca, nombre, codigo, talla} =req.body;
+    const {marca, nombre, codigo, talla, color} =req.body;
     var filter='';
 
     if(nombre!='' && codigo!=''){
@@ -94,6 +94,7 @@ exports.actualizar = function (req, res) {
             "marca": marca,
             "nombre": nombre,
             "codigo": codigo,
+            "color": color,
             "talla": talla
             };
         }
@@ -101,12 +102,14 @@ exports.actualizar = function (req, res) {
         filter = {
         "marca": marca,
         "codigo": codigo,
+        "color": color,
         "talla": talla
         };
     }else{
         filter = {
             "marca": marca,
             "nombre": nombre,
+            "color": color,
             "talla": talla
         };
     }
