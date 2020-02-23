@@ -1,5 +1,5 @@
 // Importar el modelo para guardar en la base de datos
-Contact = require('../models/contactModel');
+Contact = require('../models/ccModel');
 // Ruta inicial
     exports.index = function (req, res) {
         Contact.get(function (err, contacts) {
