@@ -6,7 +6,7 @@ var productSchema = mongoose.Schema({
     productos: [{}],
     fecha: { type: Date, default:Date.now},
     total:{type:Number},
-    cuentaCorriente:{ type: Schema.ObjectId, ref: "contacto" } 
+    cuentaCorriente:{ type: mongoose.Schema.ObjectId, ref: "contacto" } 
 });
 // Exportando el modelo
 var Producto = module.exports = mongoose.model('producto', productSchema);
