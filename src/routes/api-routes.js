@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
     });
 });
 // Import controlador
-var contactController = require('../controllers/ccControllers');
+var contactController = require('../controllers/ccController');
 var productController = require('../controllers/productController');
 var ventaController = require('../controllers/ventaController');
 // Rutas
