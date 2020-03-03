@@ -11,14 +11,11 @@ var contactController = require('../controllers/ccController');
 var productController = require('../controllers/productController');
 var ventaController = require('../controllers/ventaController');
 // Rutas
-router.route('/contacts')
+router.route('/cuentas')
     .get(contactController.index)
     .post(contactController.new);
-router.route('/contacts/:contact_id')
-    .get(contactController.view)
-    .patch(contactController.update)
-    .put(contactController.update)
-    .delete(contactController.delete);
+router.route('/cuentas/:id')
+    .put(contactController.update);
 
 router.route('/productos')
     .get(productController.index)
