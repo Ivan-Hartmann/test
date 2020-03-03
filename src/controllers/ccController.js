@@ -40,7 +40,7 @@ exports.new = function (req, res) {
              res.json({
                  status:'error',
                  data:err
-             };
+             });
         res.json({
             message: 'Nuevo cliente creado',
             data: contact
