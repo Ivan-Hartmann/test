@@ -12,54 +12,69 @@ Contact = require('../models/ccModel');
         }
         res.json({
             status: "success",
-            message: "Contacts retrieved successfully",
             data: contacts
         });
     });
 };
 // Crear
 exports.new = function (req, res) {
+    const {nombre, apellido, telefono, direccion} = req.body;
+    const correo='';
+    const total;
+    if(req.body.correo){
+        correo=req.body.correo;
+    }
+    if(req.body.total){
+        total=req.body.total;
+    }
     var contact = new Contact();
-    contact.name = req.body.name ? req.body.name : contact.name;
-    contact.gender = req.body.gender;
-    contact.email = req.body.email;
-    contact.phone = req.body.phone;
+    contact.nombre = nombre;
+    contact.apellido = apellido;
+    contact.telefono = telefono;
+    contact.direccion = direccion;
+    contact.correo = correo;
+    contact.total = total;
 // Guardar y verificar errores
     contact.save(function (err) {
          if (err)
-             res.json(err);
+             res.json({
+                 status:'error',
+                 data:err
+             };
         res.json({
-            message: 'New contact created!',
+            message: 'Nuevo cliente creado',
             data: contact
         });
     });
 };
-// Buscar por id
-exports.view = function (req, res) {
-    Contact.findById(req.params.contact_id, function (err, contact) {
-        if (err)
-            res.send(err);
-        res.json({
-            message: 'Contact details loading..',
-            data: contact
-        });
-    });
-};
+
 // Actualizar
 exports.update = function (req, res) {
-Contact.findById(req.params.contact_id, function (err, contact) {
+Contact.findById(req.params.id, function (err, contact) {
         if (err)
             res.send(err);
-        contact.name = req.body.name ? req.body.name : contact.name;
-        contact.gender = req.body.gender;
-        contact.email = req.body.email;
-        contact.phone = req.body.phone;
+    const {nombre, apellido, telefono, direccion} = req.body;
+    const correo='';
+    const total;
+    if(req.body.correo){
+        correo=req.body.correo;
+    }
+    if(req.body.total){
+        total=req.body.total;
+    }
+    var contact = new Contact();
+    contact.nombre = nombre;
+    contact.apellido = apellido;
+    contact.telefono = telefono;
+    contact.direccion = direccion;
+    contact.correo = correo;
+    contact.total = total;
 // Guardar y verificar errores
         contact.save(function (err) {
             if (err)
                 res.json(err);
             res.json({
-                message: 'Contact Info updated',
+                message: 'Datos actualizados',
                 data: contact
             });
         });
@@ -68,13 +83,13 @@ Contact.findById(req.params.contact_id, function (err, contact) {
 // Eliminar
 exports.delete = function (req, res) {
     Contact.remove({
-        _id: req.params.contact_id
+        _id: req.params.id
     }, function (err, contact) {
         if (err)
             res.send(err);
 res.json({
             status: "success",
-            message: 'Contact deleted'
+            message: 'Cliente eliminado'
         });
     });
 };
