@@ -20,7 +20,7 @@ Contact = require('../models/ccModel');
 exports.new = function (req, res) {
     const {nombre, apellido, telefono, direccion} = req.body;
     const correo='';
-    const total;
+    const total=0;
     if(req.body.correo){
         correo=req.body.correo;
     }
@@ -55,7 +55,7 @@ Contact.findById(req.params.id, function (err, contact) {
             res.send(err);
     const {nombre, apellido, telefono, direccion} = req.body;
     const correo='';
-    const total;
+    const total=0;
     if(req.body.correo){
         correo=req.body.correo;
     }
