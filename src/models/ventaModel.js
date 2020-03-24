@@ -8,7 +8,7 @@ var productSchema = mongoose.Schema({
     cuentaCorriente:{ type: mongoose.Schema.ObjectId, ref: "contacto" } 
 });
 // Exportando el modelo
-var Producto = module.exports = mongoose.model('productos', productSchema);
+var Ventas = module.exports = mongoose.model('ventas', productSchema);
 module.exports.get = function (callback, limit) {
-    Producto.find(callback).limit(limit);
+    Ventas.find(callback).limit(limit);
 }
