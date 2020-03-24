@@ -5,10 +5,8 @@ exports.new = function (req, res) {
     ventaRealizada.fecha= req.body.fecha;
     ventaRealizada.productos= req.body.productos;
     ventaRealizada.total= req.body.total;
+    ventaRealizada.cuentaCorriente = req.body.cuentaCorriente ? req.body.cuentaCorriente : ventaRealizada.cuentaCorriente;
     
-    if(req.body.cuentaCorriente){
-    ventaRealizada.cuentaCorriente=req.body.cuentaCorriente;
-    }
     ventaRealizada.save((err)=>{
        if(err){
            res.json({message:'Ocurrió un error',error:err});
