@@ -4,7 +4,7 @@ var contacto = mongoose.model('contacto');
 var productSchema = mongoose.Schema({
     cliente: { type: String},
     productos: [{}],
-    fecha: { type: Date, default:Date.now},
+    fecha: { type: String},
     total:{type:Number},
     cuentaCorriente:{ type: mongoose.Schema.ObjectId, ref: "contacto" } 
 });
