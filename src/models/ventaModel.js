@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var contacto = mongoose.model('contacto');
 // Creando el Esquema para guardar en la base de datos
 var productSchema = mongoose.Schema({
-    cliente: { type: String},
     productos: [{}],
     fecha: { type: String},
     total:{type:Number},
