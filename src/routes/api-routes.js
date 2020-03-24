@@ -28,6 +28,7 @@ router.route('/productos/:producto_id')
     .delete(productController.delete);
 
 router.route('/venta')
-    .post(ventaController.new)
+    .get(ventaController.index)
+    .post(ventaController.new);
 // Exportando la variable que contiene todas las rutas
 module.exports = router;
