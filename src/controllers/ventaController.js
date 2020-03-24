@@ -17,3 +17,19 @@ exports.new = function (req, res) {
        }
     })
 }
+
+ exports.index = function (req, res) {
+        Producto.get(function (err, ventas) {
+        
+            if (err) {
+            res.json({
+                status: "error",
+                message: err,
+            });
+        }
+        res.json({
+            status: "success",
+            data: ventas
+        });
+    });
+};
