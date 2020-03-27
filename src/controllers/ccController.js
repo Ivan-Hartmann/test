@@ -53,22 +53,14 @@ exports.update = function (req, res) {
 Contact.findById(req.params.id, function (err, contact) {
         if (err)
             res.send(err);
-    const {nombre, apellido, telefono, direccion} = req.body;
-    var correo='';
-    var total=0;
-    if(req.body.correo){
-        correo=req.body.correo;
-    }
-    if(req.body.total){
-        total=req.body.total;
-    }
-    var contact = new Contact();
-    contact.nombre = nombre;
-    contact.apellido = apellido;
-    contact.telefono = telefono;
-    contact.direccion = direccion;
-    contact.correo = correo;
-    contact.total = total;
+    
+    contact.nombre = req.body.nombre ? req.body.nombre : contact.nombre;
+    contact.apellido = req.body.apellido ? req.body.apellido : contact.apellido;
+    contact.telefono = req.body.telefono ? req.body.telefono : contact.telefono;
+    contact.direccion = req.body.direccion ? req.body.direccion : contact.direccion;
+    contact.correo = req.body.correo ? req.body.correo : contact.correo;
+    contact.total = req.body.total ? req.body.total : contact.total;
+   
 // Guardar y verificar errores
         contact.save(function (err) {
             if (err)
