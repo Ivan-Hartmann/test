@@ -17,17 +17,19 @@ exports.new = function (req, res) {
 }
 
  exports.index = function (req, res) {
-        Ventas.get(function (err, ventas) {
-        
+        Ventas.find({}, function(err, ventas) {
+        contacto.populate(ventas, {path: "cuentaCorriente"},function(err, ventas){
             if (err) {
-            res.json({
-                status: "error",
-                message: err,
-            });
-        }
-        res.json({
-            status: "success",
-            data: ventas
-        });
-    });
-};
+                res.json({
+                    status: "error",
+                    message: err,
+                });
+            }else{
+                res.json({
+                    status: "success",
+                    data: ventas
+                });
+               }
+           });
+        }); 
+    }
