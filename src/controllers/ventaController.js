@@ -1,5 +1,6 @@
 // Importar el modelo para guardar en la base de datos
 Ventas = require('../models/ventaModel');
+Contacto = require('../models/ccModel');
 exports.new = function (req, res) {
     var ventaRealizada = new Ventas();
     ventaRealizada.fecha= req.body.fecha;
@@ -18,7 +19,7 @@ exports.new = function (req, res) {
 
  exports.index = function (req, res) {
         Ventas.find({}, function(err, ventas) {
-        contacto.populate(ventas, {path: "cuentaCorriente"},function(err, ventas){
+        Contacto.populate(ventas, {path: "cuentaCorriente"},function(err, ventas){
             if (err) {
                 res.json({
                     status: "error",
