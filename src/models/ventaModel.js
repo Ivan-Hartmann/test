@@ -3,7 +3,7 @@ var contacto = mongoose.model('contacto');
 // Creando el Esquema para guardar en la base de datos
 var productSchema = mongoose.Schema({
     productos: [{}],
-    fecha: { type: String},
+    fecha: { type: Date, default: Date.now },
     total:{type:Number},
     cuentaCorriente:{ type: mongoose.Schema.ObjectId, ref: "contacto" } 
 });
