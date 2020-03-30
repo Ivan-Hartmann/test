@@ -3,7 +3,6 @@ Ventas = require('../models/ventaModel');
 Contacto = require('../models/ccModel');
 exports.new = function (req, res) {
     var ventaRealizada = new Ventas();
-    ventaRealizada.fecha= req.body.fecha;
     ventaRealizada.productos= req.body.productos;
     ventaRealizada.total= req.body.total;
     ventaRealizada.cuentaCorriente = req.body.cuentaCorriente ? req.body.cuentaCorriente : ventaRealizada.cuentaCorriente;
