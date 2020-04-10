@@ -15,7 +15,8 @@ router.route('/cuentas')
     .get(contactController.index)
     .post(contactController.new);
 router.route('/cuentas/:id')
-    .put(contactController.update);
+    .put(contactController.update)
+    .delete(contactController.delete);
 
 router.route('/productos')
     .get(productController.index)
