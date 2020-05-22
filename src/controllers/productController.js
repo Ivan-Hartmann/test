@@ -56,6 +56,7 @@ Product.findById(req.params.producto_id, function (err, producto) {
             producto.talla = req.body.talla;
             producto.color = req.body.color;
             producto.cantidad = req.body.cantidad;
+            producto.vendido = req.body.vendido;
             // Guardar y verificar errores
             producto.save(function (err) {
             if (err)
