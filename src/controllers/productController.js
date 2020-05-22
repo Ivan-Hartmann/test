@@ -89,7 +89,7 @@ exports.actualizar = function (req, res) {
     const {marca, nombre, codigo, talla, color} =req.body;
     var filter='';
     if(update.vendido==null){
-        update.vendido=0;   
+        update.vendido=2;   
     }
     if(nombre!='' && codigo!=''){
         filter = {
