@@ -7,6 +7,7 @@ var productSchema = mongoose.Schema({
     talla: { type: String, required: true },
     color: { type: String, required: true },
     cantidad: { type: Number, required: true },
+    vendido: { type: Number },
     fecha: { type: Date, default: Date.now}
 });
 // Exportando el modelo
