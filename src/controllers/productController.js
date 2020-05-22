@@ -85,10 +85,12 @@ res.json({
 };
 // Buscar y Actualizar o Guardar
 exports.actualizar = function (req, res) {
-    const update = req.body;
+    var update = req.body;
     const {marca, nombre, codigo, talla, color} =req.body;
     var filter='';
-
+    if(update.vendido==null){
+        update.vendido=0;   
+    }
     if(nombre!='' && codigo!=''){
         filter = {
             "marca": marca,
