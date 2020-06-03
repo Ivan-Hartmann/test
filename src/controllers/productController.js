@@ -51,8 +51,8 @@ Product.findById(req.params.producto_id, function (err, producto) {
         if (err)
             res.send(err);
             producto.marca = req.body.marca ? req.body.marca : producto.marca;
-            producto.nombre = req.body.nombre ? req.body.nombre : producto.nombre;
-            producto.codigo = req.body.codigo ? req.body.codigo : producto.codigo;
+            producto.nombre = req.body.nombre;
+            producto.codigo = req.body.codigo;
             producto.talla = req.body.talla;
             producto.color = req.body.color;
             producto.cantidad = req.body.cantidad;
