@@ -59,7 +59,7 @@ Contact.findById(req.params.id, function (err, contact) {
     contact.telefono = req.body.telefono ? req.body.telefono : contact.telefono;
     contact.direccion = req.body.direccion ? req.body.direccion : contact.direccion;
     contact.correo = req.body.correo ? req.body.correo : contact.correo;
-    contact.total = req.body.total ? req.body.total : contact.total;
+    contact.total = req.body.total;
    
 // Guardar y verificar errores
         contact.save(function (err) {
