@@ -6,7 +6,8 @@ var contactSchema = mongoose.Schema({
     correo: { type: String},
     telefono: String,
     direccion: String,
-    total:Number
+    total:Number,
+    ultimoPago:Number
 },{ timestamps: true });
 // Exportando el modelo
 var Contact = module.exports = mongoose.model('contacto', contactSchema);
