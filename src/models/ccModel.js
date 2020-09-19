@@ -8,7 +8,8 @@ var contactSchema = mongoose.Schema({
     direccion: String,
     total:Number,
     ultimoPago:Number,
-    fechaUltimoPago:Date
+    fechaUltimoPago:Date,
+    historialDePago: [{}]
 },{ timestamps: true });
 // Exportando el modelo
 var Contact = module.exports = mongoose.model('contacto', contactSchema);
