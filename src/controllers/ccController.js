@@ -60,8 +60,8 @@ Contact.findById(req.params.id, function (err, contact) {
     contact.direccion = req.body.direccion ? req.body.direccion : contact.direccion;
     contact.correo = req.body.correo ? req.body.correo : contact.correo;
     contact.total = req.body.total;
-    contact.ultimoPago = req.body.ultimoPago;
-    contact.fechaUltimoPago = req.body.fechaUltimoPago;
+    contact.ultimoPago = req.body.ultimoPago ? req.body.ultimoPago : contact.ultimoPago;
+    contact.fechaUltimoPago = req.body.fechaUltimoPago ? req.body.fechaUltimoPago : contact.fechaUltimoPago;
     contact.historialDePago = req.body.historialDePago;
    
 // Guardar y verificar errores
