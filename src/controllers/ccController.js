@@ -62,6 +62,7 @@ Contact.findById(req.params.id, function (err, contact) {
     contact.total = req.body.total;
     contact.ultimoPago = req.body.ultimoPago;
     contact.fechaUltimoPago = req.body.fechaUltimoPago;
+    contact.historialDePago = req.body.historialDePago;
    
 // Guardar y verificar errores
         contact.save(function (err) {
