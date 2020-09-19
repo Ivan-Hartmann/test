@@ -60,6 +60,7 @@ Contact.findById(req.params.id, function (err, contact) {
     contact.direccion = req.body.direccion ? req.body.direccion : contact.direccion;
     contact.correo = req.body.correo ? req.body.correo : contact.correo;
     contact.total = req.body.total;
+    contact.ultimoPago = req.body.ultimoPago;
    
 // Guardar y verificar errores
         contact.save(function (err) {
